@@ -1,11 +1,15 @@
-# Problem: https://leetcode.com/problems/two-sum/
+def TwoSum(nums, target):
 
-def two_sum(nums, target):
-    seen = {}
+    hash_map = {}
+
     for i, num in enumerate(nums):
-        if target - num in seen:
-            return [seen[target - num], i]
-        seen[num] = i
+        complement = target - num
 
-# Test case
-print(two_sum([2, 7, 11, 15], 9))  # Output: [0, 1]
+        if complement in hash_map:
+            return [hash_map[complement], i]
+        
+        hash_map[num] = i
+
+    return []
+
+print(TwoSum([2, 7, 5, 11], 9)) #o/p : [0, 1]
